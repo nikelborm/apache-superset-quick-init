@@ -1,5 +1,12 @@
 # apache-superset-quick-init
 
+## Clone with
+
+```bash
+git clone -b main --depth 1 https://github.com/nikelborm/apache-superset-quick-init.git
+cd apache-superset-quick-init
+```
+
 ## How to use
 
 ```bash
