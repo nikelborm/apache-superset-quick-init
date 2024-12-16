@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -euo pipefail
+
 mkdir superset
 cd superset
 temp_dir=$(mktemp -d);
