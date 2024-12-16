@@ -11,7 +11,7 @@ cd apache-superset-quick-init
 
 ```bash
 ./main.sh
-cd ./tmp
+cd ./superset
 nano ./docker/.env
 nano ./docker/superset-websocket/config.json
 # choose tag you want: 'latest' or something specific like '4.1.1'

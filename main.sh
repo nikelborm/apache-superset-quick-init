@@ -25,6 +25,9 @@ find ./docker -type f -name '*.sh' -exec chmod +x '{}' \;
 sed -i "s/DEV_MODE=true/DEV_MODE=false/" ./docker/.env
 sed -i "s/FLASK_DEBUG=true/FLASK_DEBUG=false/" ./docker/.env
 sed -i "s/SUPERSET_ENV=development/SUPERSET_ENV=production/" ./docker/.env
+sed -i "s/SUPERSET_LOAD_EXAMPLES=yes/SUPERSET_LOAD_EXAMPLES=no/" ./docker/.env
+sed -i "s/ENABLE_PLAYWRIGHT=false/ENABLE_PLAYWRIGHT=true/" ./docker/.env
+sed -i "s/PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true/PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=false/" ./docker/.env
 
 # to secure envs
 sudo chmod -R og= ./docker/superset-websocket
@@ -32,3 +35,4 @@ sudo chmod -R og= ./docker/.env
 
 
 echo 'psycopg2-binary' > ./docker/requirements-local.txt
+echo 'pillow' >> ./docker/requirements-local.txt
