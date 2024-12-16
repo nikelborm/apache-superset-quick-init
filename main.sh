@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-mkdir tmp
-cd tmp
+mkdir superset
+cd superset
 temp_dir=$(mktemp -d);
 temp_env=$temp_dir/.temp.env;
 temp_js=$temp_dir/index.mjs;
