@@ -7,7 +7,22 @@ temp_env=$temp_dir/.temp.env;
 temp_js=$temp_dir/index.mjs;
 
 curl -Lo $temp_js https://github.com/nikelborm/download-github-folder/releases/latest/download/index.js;
-cp ./template.env $temp_env
+
+cat >> $temp_env << 'END'
+# Get here: https://github.com/settings/tokens
+GITHUB_ACCESS_TOKEN=''
+
+GITHUB_REPO_OWNER='apache'
+
+GITHUB_REPO_NAME='superset'
+
+PATH_TO_DIRECTORY_IN_REPO='docker'
+
+# If commented, default branch in repo will be used
+# COMMIT_SHA_HASH_OR_BRANCH_NAME_OR_TAG_NAME='main'
+
+PATH_TO_LOCAL_DIR_INTO_WHICH_CONTENTS_OF_REPO_DIR_WILL_BE_PUT=''
+END
 
 mkdir superset
 cd superset
