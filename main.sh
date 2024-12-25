@@ -12,6 +12,7 @@ cp ./template.env $temp_env
 mkdir superset
 cd superset
 read -sp 'Enter github access token: ' gh_token
+echo
 sed -i "s/\(GITHUB_ACCESS_TOKEN\)=''/\1='$gh_token'/" $temp_env
 sed -i "s/\(PATH_TO_LOCAL_DIR_INTO_WHICH_CONTENTS_OF_REPO_DIR_WILL_BE_PUT\)=''/\1='$(pwd | sed 's_/_\\/_g')\/docker'/" $temp_env
 
@@ -32,7 +33,7 @@ sed -i 's/\(ENABLE_PLAYWRIGHT\)=.*/\1=true/' ./docker/.env
 sed -i 's/\(PUPPETEER_SKIP_CHROMIUM_DOWNLOAD\)=.*/\1=false/' ./docker/.env
 
 gen_pass() {
-  openssl rand -base64 48;
+  openssl rand -base64 48 | sed 's_/_\\/_g';
 }
 
 db_pass=$(gen_pass)
@@ -43,11 +44,11 @@ sed -i "s/\(POSTGRES_PASSWORD\)=.*/\1=\"$db_pass\"/" ./docker/.env
 sed -i "s/\(EXAMPLES_PASSWORD\)=.*/\1=\"$(gen_pass)\"/" ./docker/.env
 sed -i "s/\(SUPERSET_SECRET_KEY\)=.*/\1=\"$(gen_pass)\"/" ./docker/.env
 
-sed '/^# Make sure you set this to a unique secure random value/d' ./docker/.env
+sed -i '/^# Make sure you set this to a unique secure random value/d' ./docker/.env
 
 cat <<< $(jq ". + {\"jwtSecret\": \"$(gen_pass)\"}" docker/superset-websocket/config.json) > docker/superset-websocket/config.json
 
 # to secure envs
-sudo chmod -R og= ./docker/{superset-websocket,.env}
+chmod -R og= ./docker/{superset-websocket,.env}
 
 echo -e 'psycopg2-binary\npillow' > ./docker/requirements-local.txt
