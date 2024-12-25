@@ -1,5 +1,14 @@
 # apache-superset-quick-init
 
+## Dependencies
+
+1. curl
+2. find
+3. openssl
+4. jq
+5. node (You can install it easily using [NVM](https://github.com/nvm-sh/nvm))
+6. docker
+
 ## How to use
 
 ```bash
