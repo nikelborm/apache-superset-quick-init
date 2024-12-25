@@ -2,6 +2,12 @@
 
 set -euo pipefail
 
+command -v curl >/dev/null 2>&1 || { echo "curl is required but not installed."; exit 1; }
+command -v find >/dev/null 2>&1 || { echo "find is required but not installed."; exit 1; }
+command -v openssl >/dev/null 2>&1 || { echo "openssl is required but not installed."; exit 1; }
+command -v jq >/dev/null 2>&1 || { echo "jq is required but not installed."; exit 1; }
+command -v node >/dev/null 2>&1 || { echo "node.js is required but not installed. Install it using your OS's default package manager or using https://github.com/nvm-sh/nvm"; exit 1; }
+
 temp_dir=$(mktemp -d);
 temp_env=$temp_dir/.temp.env;
 temp_js=$temp_dir/index.mjs;
@@ -26,7 +32,7 @@ END
 
 mkdir superset
 cd superset
-read -sp 'Enter github access token: ' gh_token
+read -sp 'Enter github access token: ' gh_token < /dev/tty
 echo
 sed -i "s/\(GITHUB_ACCESS_TOKEN\)=''/\1='$gh_token'/" $temp_env
 sed -i "s/\(PATH_TO_LOCAL_DIR_INTO_WHICH_CONTENTS_OF_REPO_DIR_WILL_BE_PUT\)=''/\1='$(pwd | sed 's_/_\\/_g')\/docker'/" $temp_env
