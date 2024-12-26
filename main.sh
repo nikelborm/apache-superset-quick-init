@@ -3,7 +3,6 @@
 set -euo pipefail
 
 command -v curl >/dev/null 2>&1 || { echo "curl is required but not installed."; exit 1; }
-command -v find >/dev/null 2>&1 || { echo "find is required but not installed."; exit 1; }
 command -v openssl >/dev/null 2>&1 || { echo "openssl is required but not installed."; exit 1; }
 command -v jq >/dev/null 2>&1 || { echo "jq is required but not installed."; exit 1; }
 command -v node >/dev/null 2>&1 || { echo "node.js is required but not installed. Install it using your OS's default package manager or using https://github.com/nvm-sh/nvm"; exit 1; }
@@ -47,9 +46,6 @@ sed -i "s/\(PATH_TO_LOCAL_DIR_INTO_WHICH_CONTENTS_OF_REPO_DIR_WILL_BE_PUT\)=''/\
 node --env-file=$temp_env $temp_js;
 
 rm -rf $temp_dir
-
-# fixes bug of download-github-folder util
-find . -type f -name '*.sh' -exec chmod +x '{}' \;
 
 sed -i 's/\(DEV_MODE\)=.*/\1=false/' .env
 sed -i 's/\(FLASK_DEBUG\)=.*/\1=false/' .env
