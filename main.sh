@@ -32,26 +32,31 @@ END
 
 mkdir superset
 cd superset
-read -sp 'Enter github access token: ' gh_token < /dev/tty
-echo
-sed -i "s/\(GITHUB_ACCESS_TOKEN\)=''/\1='$gh_token'/" $temp_env
-sed -i "s/\(PATH_TO_LOCAL_DIR_INTO_WHICH_CONTENTS_OF_REPO_DIR_WILL_BE_PUT\)=''/\1='$(pwd | sed 's_/_\\/_g')\/docker'/" $temp_env
-
-node --env-file=$temp_env $temp_js;
 
 curl -Lo ./compose.yml https://raw.githubusercontent.com/apache/superset/master/docker-compose-image-tag.yml;
 echo -e "\nnetworks:\n  default:\n    name: apache_superset_network" >> compose.yml;
+
+mkdir docker
+cd docker
+
+read -sp 'Enter github access token: ' gh_token < /dev/tty
+echo
+sed -i "s/\(GITHUB_ACCESS_TOKEN\)=''/\1='$gh_token'/" $temp_env
+sed -i "s/\(PATH_TO_LOCAL_DIR_INTO_WHICH_CONTENTS_OF_REPO_DIR_WILL_BE_PUT\)=''/\1='$(pwd | sed 's_/_\\/_g')'/" $temp_env
+
+node --env-file=$temp_env $temp_js;
+
 rm -rf $temp_dir
 
 # fixes bug of download-github-folder util
-find ./docker -type f -name '*.sh' -exec chmod +x '{}' \;
+find . -type f -name '*.sh' -exec chmod +x '{}' \;
 
-sed -i 's/\(DEV_MODE\)=.*/\1=false/' ./docker/.env
-sed -i 's/\(FLASK_DEBUG\)=.*/\1=false/' ./docker/.env
-sed -i 's/\(SUPERSET_ENV\)=.*/\1=production/' ./docker/.env
-sed -i 's/\(SUPERSET_LOAD_EXAMPLES\)=.*/\1=no/' ./docker/.env
-sed -i 's/\(ENABLE_PLAYWRIGHT\)=.*/\1=true/' ./docker/.env
-sed -i 's/\(PUPPETEER_SKIP_CHROMIUM_DOWNLOAD\)=.*/\1=false/' ./docker/.env
+sed -i 's/\(DEV_MODE\)=.*/\1=false/' .env
+sed -i 's/\(FLASK_DEBUG\)=.*/\1=false/' .env
+sed -i 's/\(SUPERSET_ENV\)=.*/\1=production/' .env
+sed -i 's/\(SUPERSET_LOAD_EXAMPLES\)=.*/\1=no/' .env
+sed -i 's/\(ENABLE_PLAYWRIGHT\)=.*/\1=true/' .env
+sed -i 's/\(PUPPETEER_SKIP_CHROMIUM_DOWNLOAD\)=.*/\1=false/' .env
 
 gen_pass() {
   openssl rand -base64 48 | sed 's_/_\\/_g';
@@ -59,17 +64,17 @@ gen_pass() {
 
 db_pass=$(gen_pass)
 
-sed -i "s/\(DATABASE_PASSWORD\)=.*/\1=\"$db_pass\"/" ./docker/.env
-sed -i "s/\(POSTGRES_PASSWORD\)=.*/\1=\"$db_pass\"/" ./docker/.env
+sed -i "s/\(DATABASE_PASSWORD\)=.*/\1=\"$db_pass\"/" .env
+sed -i "s/\(POSTGRES_PASSWORD\)=.*/\1=\"$db_pass\"/" .env
 
-sed -i "s/\(EXAMPLES_PASSWORD\)=.*/\1=\"$(gen_pass)\"/" ./docker/.env
-sed -i "s/\(SUPERSET_SECRET_KEY\)=.*/\1=\"$(gen_pass)\"/" ./docker/.env
+sed -i "s/\(EXAMPLES_PASSWORD\)=.*/\1=\"$(gen_pass)\"/" .env
+sed -i "s/\(SUPERSET_SECRET_KEY\)=.*/\1=\"$(gen_pass)\"/" .env
 
-sed -i '/^# Make sure you set this to a unique secure random value/d' ./docker/.env
+sed -i '/^# Make sure you set this to a unique secure random value/d' .env
 
-cat <<< $(jq ". + {\"jwtSecret\": \"$(gen_pass)\"}" docker/superset-websocket/config.json) > docker/superset-websocket/config.json
+cat <<< $(jq ". + {\"jwtSecret\": \"$(gen_pass)\"}" superset-websocket/config.json) > superset-websocket/config.json
 
 # to secure envs
-chmod -R og= ./docker/{superset-websocket,.env}
+chmod -R og= {superset-websocket,.env}
 
-echo -e 'psycopg2-binary\npillow' > ./docker/requirements-local.txt
+echo -e 'psycopg2-binary\npillow' > requirements-local.txt
