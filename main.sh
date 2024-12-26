@@ -4,7 +4,6 @@ set -euo pipefail
 
 command -v curl >/dev/null 2>&1 || { echo "curl is required but not installed."; exit 1; }
 command -v openssl >/dev/null 2>&1 || { echo "openssl is required but not installed."; exit 1; }
-command -v jq >/dev/null 2>&1 || { echo "jq is required but not installed."; exit 1; }
 command -v node >/dev/null 2>&1 || { echo "node.js is required but not installed. Install it using your OS's default package manager or using https://github.com/nvm-sh/nvm"; exit 1; }
 
 temp_dir=$(mktemp -d);
@@ -68,7 +67,7 @@ sed -i "s/\(SUPERSET_SECRET_KEY\)=.*/\1=\"$(gen_pass)\"/" .env
 
 sed -i '/^# Make sure you set this to a unique secure random value/d' .env
 
-cat <<< $(jq ". + {\"jwtSecret\": \"$(gen_pass)\"}" superset-websocket/config.json) > superset-websocket/config.json
+sed -i "s/\(\"jwtSecret\": \"\).*\",/\1$(gen_pass)\",/" superset-websocket/config.json
 
 # to secure envs
 chmod -R og= {superset-websocket,.env}

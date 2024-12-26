@@ -4,9 +4,8 @@
 
 1. curl (for loading scripts and compose files)
 2. openssl (for automatic password generation)
-3. jq (for inserting automatically generated password into one of the config files)
-4. node (You can install it easily using [NVM](https://github.com/nvm-sh/nvm))
-5. docker (for running superset)
+3. node (You can install it easily using [NVM](https://github.com/nvm-sh/nvm))
+4. docker (for running superset)
 
 ## How to use
 
