@@ -25,7 +25,7 @@ PATH_TO_DIRECTORY_IN_REPO='docker'
 # If commented, default branch in repo will be used
 # COMMIT_SHA_HASH_OR_BRANCH_NAME_OR_TAG_NAME='main'
 
-PATH_TO_LOCAL_DIR_INTO_WHICH_CONTENTS_OF_REPO_DIR_WILL_BE_PUT=''
+LOCAL_DIR_PATH_TO_PUT_INSIDE_REPO_DIR_CONTENTS=''
 END
 
 mkdir superset
@@ -40,7 +40,7 @@ cd docker
 read -sp 'Enter github access token: ' gh_token < /dev/tty
 echo
 sed -i "s/\(GITHUB_ACCESS_TOKEN\)=''/\1='$gh_token'/" $temp_env
-sed -i "s/\(PATH_TO_LOCAL_DIR_INTO_WHICH_CONTENTS_OF_REPO_DIR_WILL_BE_PUT\)=''/\1='$(pwd | sed 's_/_\\/_g')'/" $temp_env
+sed -i "s/\(LOCAL_DIR_PATH_TO_PUT_INSIDE_REPO_DIR_CONTENTS\)=''/\1='$(pwd | sed 's_/_\\/_g')'/" $temp_env
 
 node --env-file=$temp_env $temp_js;
 
