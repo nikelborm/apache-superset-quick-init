@@ -17,10 +17,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 23
-      -
-        name: 'Deps: Install'
-        run: |
-          npm install
+      # -
+      #   name: 'Deps: Install'
+      #   run: |
+      #     npm install
       # - # builds automatically
       #   run: npm publish --provenance
       #   env:
@@ -33,3 +33,4 @@ jobs:
       #     fail_on_unmatched_files: true
       #     files: |
       #       ./dist/minified/index.js
+      #       ./template.env

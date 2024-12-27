@@ -1,10 +1,12 @@
 # apache-superset-quick-init
 
+[![Release Workflow](https://github.com/nikelborm/apache-superset-quick-init/actions/workflows/main.yml/badge.svg)](https://github.com/nikelborm/apache-superset-quick-init/actions/workflows/main.yml)
+
 I'm currently in the process of rewriting it to typescript since it uses js script ([nikelborm/download-github-folder](https://github.com/nikelborm/download-github-folder/)) anyway
 
 > [!NOTE]
 > Make sure to read the steps for installation from GitHub NPM Registry copied from [here](https://github.com/nikelborm/download-github-folder/#from-github-npm-registry):
-> 
+>
 > 1. [Generate `Personal access token (classic)` with `read:packages` scope](https://github.com/settings/tokens/new?description=Install%20packages%20from%20GitHub%20NPM%20registry&scopes=read:packages&default_expires_at=none)
 > 2. Save the token
 > 3. Run `npm login --scope=@nikelborm --auth-type=legacy --registry=https://npm.pkg.github.com` (read more about `--auth-type=legacy` [here](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#authenticating-with-a-personal-access-token))

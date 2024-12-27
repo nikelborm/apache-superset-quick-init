@@ -10,11 +10,12 @@
     "build": "rimraf dist && tsc && ncc build ./dist/index.js -o ./dist/minified --no-source-map-register --minify --no-cache"
   },
   "dependencies": {
-    "@nikelborm/download-github-folder": "^0.1.4"
+    "@nikelborm/download-github-folder": "^0.1.4",
+    "undici": "^7.2.0"
   },
   "devDependencies": {
     "@total-typescript/ts-reset": "^0.5.1",
-    "@types/node": "^22.8.1",
+    "@types/node": "^22.10.2",
     "@vercel/ncc": "^0.38.1",
     "rimraf": "^6.0.1",
     "typescript": "^5.4.5"
