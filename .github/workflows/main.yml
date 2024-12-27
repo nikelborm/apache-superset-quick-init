@@ -1,0 +1,35 @@
+name: Release Workflow
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v4
+      -
+        name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 23
+      -
+        name: 'Deps: Install'
+        run: |
+          npm install
+      # - # builds automatically
+      #   run: npm publish --provenance
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      # -
+      #   name: 'Release: Upload'
+      #   uses: softprops/action-gh-release@v2
+      #   with:
+      #     tag_name: latest-${{github.sha}}
+      #     fail_on_unmatched_files: true
+      #     files: |
+      #       ./dist/minified/index.js

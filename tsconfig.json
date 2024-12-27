@@ -1,0 +1,51 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "NodeNext",
+    "module": "NodeNext",
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "esModuleInterop": true,
+    "declaration": true,
+    "declarationMap": true,
+    // they'll be removed by ncc if needed
+    "removeComments": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "target": "ESNext",
+    "sourceMap": true,
+    "preserveWatchOutput": true,
+    "outDir": "./dist",
+    "allowUnreachableCode": false,
+    "baseUrl": "./",
+    "incremental": true,
+    "lib": ["ESNext"],
+    "exactOptionalPropertyTypes": true,
+    "allowJs": false,
+    "noErrorTruncation": true,
+    "skipLibCheck": true,
+    "noImplicitAny": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "strict": true,
+    "resolveJsonModule": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "noImplicitThis": true,
+    "strictBindCallApply": true,
+    "noUncheckedIndexedAccess":true,
+    "useUnknownInCatchVariables": true,
+    "strictPropertyInitialization": true,
+    "alwaysStrict":true,
+    "noImplicitUseStrict": false,
+    "suppressExcessPropertyErrors": false,
+    "suppressImplicitAnyIndexErrors": false,
+    "noStrictGenericChecks": false,
+    "plugins": [
+      {
+        "name": "typescript-strict-plugin",
+      }
+    ]
+  }
+}

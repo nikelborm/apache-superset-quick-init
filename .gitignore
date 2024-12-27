@@ -1,2 +1,6 @@
 tmp
 superset
+.env
+node_modules
+dist
+apache-superset-quick-init-*

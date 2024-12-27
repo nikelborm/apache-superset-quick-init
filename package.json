@@ -1,0 +1,88 @@
+{
+  "name": "apache-superset-quick-init",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Quickly download files needed to run Apache Superset deployment in docker and preconfigure them for production",
+  "license": "MIT",
+  "scripts": {
+    "start": "tsc && node --env-file=.env ./dist/index.js",
+    "prepack": "npm run build",
+    "build": "rimraf dist && tsc && ncc build ./dist/index.js -o ./dist/minified --no-source-map-register --minify --no-cache"
+  },
+  "dependencies": {
+    "@nikelborm/download-github-folder": "^0.1.4"
+  },
+  "devDependencies": {
+    "@total-typescript/ts-reset": "^0.5.1",
+    "@types/node": "^22.8.1",
+    "@vercel/ncc": "^0.38.1",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.4.5"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/nikelborm/apache-superset-quick-init.git"
+  },
+  "main": "./dist/src/index.js",
+  "bin": {
+    "apache-superset-quick-init": "dist/minified/index.js",
+    "asqi": "dist/minified/index.js"
+  },
+  "bugs": {
+    "url": "https://github.com/nikelborm/apache-superset-quick-init/issues",
+    "email": "evadev@duck.com"
+  },
+  "files": [
+    "dist",
+    ".github/FUNDING.yml"
+  ],
+  "homepage": "https://github.com/nikelborm/apache-superset-quick-init#readme",
+  "exports": {
+    ".": "./dist/src/index.js",
+    "./index": "./dist/src/index.js",
+    "./index.js": "./dist/src/index.js",
+    "./package.json": "./package.json"
+  },
+  "keywords": [
+    "docker",
+    "deployment",
+    "docker-compose",
+    "deploy",
+    "superset",
+    "apache",
+    "apache-superset",
+    "nodejs",
+    "javascript",
+    "npm",
+    "scraper",
+    "downloader",
+    "node",
+    "typescript",
+    "script",
+    "download",
+    "node-js"
+  ],
+  "author": {
+    "name": "nikelborm",
+    "email": "evadev@duck.com",
+    "url": "https://github.com/nikelborm"
+  },
+  "contributors": [
+    {
+      "name": "nikelborm",
+      "email": "evadev@duck.com",
+      "url": "https://github.com/nikelborm"
+    }
+  ],
+  "maintainers": [
+    {
+      "name": "nikelborm",
+      "email": "evadev@duck.com",
+      "url": "https://github.com/nikelborm"
+    }
+  ]
+}
