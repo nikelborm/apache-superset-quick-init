@@ -10,7 +10,7 @@ temp_dir=$(mktemp -d);
 temp_env=$temp_dir/.temp.env;
 temp_js=$temp_dir/index.mjs;
 
-curl -Lo $temp_js https://github.com/nikelborm/download-github-folder/releases/latest/download/index.js;
+curl -Lo $temp_js https://github.com/nikelborm/fetch-github-folder/releases/latest/download/index.js;
 
 cat >> $temp_env << 'END'
 # Get here: https://github.com/settings/tokens

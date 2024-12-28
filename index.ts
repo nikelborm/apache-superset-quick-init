@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import "@total-typescript/ts-reset";
-import { downloadDirAndPutIntoFs } from '@nikelborm/download-github-folder';
+import { downloadDirAndPutIntoFs } from 'fetch-github-folder';
 import { randomFillSync } from 'crypto';
 import { appendFile, mkdir, writeFile } from 'fs/promises';
 import path from 'path';
@@ -47,7 +47,6 @@ await mkdirpAndCd('docker');
 //     owner: 'apache',
 //     name: 'superset'
 //   },
-//   localDirPathToPutInsideRepoDirContents: process.cwd(),
-//   pathToDirectoryInRepo: 'docker',
-
+//   localDirPathToPutInsideRepoDirContents: '.',
+//   pathToDirectoryInRepo: 'docker'
 // })

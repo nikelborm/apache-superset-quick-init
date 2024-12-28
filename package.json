@@ -1,16 +1,15 @@
 {
   "name": "apache-superset-quick-init",
-  "version": "0.1.0",
+  "version": "0.0.2",
   "type": "module",
   "description": "Quickly download files needed to run Apache Superset deployment in docker and preconfigure them for production",
   "license": "MIT",
   "scripts": {
     "start": "tsc && node --env-file=.env ./dist/index.js",
-    "prepack": "npm run build",
     "build": "rimraf dist && tsc && ncc build ./dist/index.js -o ./dist/minified --no-source-map-register --minify --no-cache"
   },
   "dependencies": {
-    "@nikelborm/download-github-folder": "^0.1.4",
+    "fetch-github-folder": "^0.0.5",
     "undici": "^7.2.0"
   },
   "devDependencies": {
@@ -30,8 +29,8 @@
   },
   "main": "./dist/src/index.js",
   "bin": {
-    "apache-superset-quick-init": "dist/minified/index.js",
-    "asqi": "dist/minified/index.js"
+    "apache-superset-quick-init": "dist/index.js",
+    "asqi": "dist/index.js"
   },
   "bugs": {
     "url": "https://github.com/nikelborm/apache-superset-quick-init/issues",
@@ -39,7 +38,10 @@
   },
   "files": [
     "dist",
-    ".github/FUNDING.yml"
+    "!dist/minified",
+    "!**/*.tsbuildinfo",
+    ".github/FUNDING.yml",
+    "template.env"
   ],
   "homepage": "https://github.com/nikelborm/apache-superset-quick-init#readme",
   "exports": {

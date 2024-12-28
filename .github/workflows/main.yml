@@ -7,6 +7,8 @@ jobs:
   build:
     permissions:
       contents: write
+      packages: write
+      id-token: write
     runs-on: ubuntu-latest
     steps:
       -
@@ -17,20 +19,35 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 23
-      # -
-      #   name: 'Deps: Install'
-      #   run: |
-      #     npm install
-      # - # builds automatically
-      #   run: npm publish --provenance
-      #   env:
-      #     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      # -
-      #   name: 'Release: Upload'
-      #   uses: softprops/action-gh-release@v2
-      #   with:
-      #     tag_name: latest-${{github.sha}}
-      #     fail_on_unmatched_files: true
-      #     files: |
-      #       ./dist/minified/index.js
-      #       ./template.env
+          registry-url: https://registry.npmjs.org/
+      -
+        name: 'Deps: Install'
+        run: |
+          npm install
+      -
+        name: 'Build'
+        run: |
+          npm run build
+      -
+        name: 'Publish to default NPM registry'
+        run: |
+          npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
+      -
+        name: 'Publish to GitHub''s NPM registry'
+        run: |
+          sed -i 's/registry.npmjs.org/npm.pkg.github.com/' /home/runner/work/_temp/.npmrc
+          sed -i 's/"name": "apache-superset-quick-init"/"name": "@nikelborm\/apache-superset-quick-init"/' package.json
+          npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      -
+        name: 'Release: Upload'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: latest-${{github.sha}}
+          fail_on_unmatched_files: true
+          files: |
+            ./dist/minified/index.js
+            ./template.env
