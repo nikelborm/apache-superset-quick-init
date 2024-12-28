@@ -3,9 +3,8 @@
 import "@total-typescript/ts-reset";
 import { downloadDirAndPutIntoFs } from 'fetch-github-folder';
 import { randomFillSync } from 'crypto';
-import { appendFile, mkdir, writeFile } from 'fs/promises';
-import path from 'path';
-import { pipeline, stream } from 'undici';
+import { appendFile, mkdir } from 'fs/promises';
+import { stream } from 'undici';
 import { createWriteStream } from 'fs';
 // import { pipeline } from 'stream/promises';
 
