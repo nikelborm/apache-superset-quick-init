@@ -1,15 +1,15 @@
 {
   "name": "apache-superset-quick-init",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "type": "module",
   "description": "Quickly download files needed to run Apache Superset deployment in docker and preconfigure them for production",
   "license": "MIT",
   "scripts": {
     "start": "tsc && node --env-file=.env ./dist/index.js",
-    "build": "rimraf dist && tsc && ncc build ./dist/index.js -o ./dist/minified --no-source-map-register --minify --no-cache"
+    "build": "rimraf dist && tsc && ncc build ./dist/index.js -o ./dist/minified --no-source-map-register --minify --no-cache && chmod +x ./dist/index.js ./dist/minified/index.js"
   },
   "dependencies": {
-    "fetch-github-folder": "^0.0.5",
+    "fetch-github-folder": "^0.0.7",
     "undici": "^7.2.0"
   },
   "devDependencies": {
