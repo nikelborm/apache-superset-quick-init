@@ -1,6 +1,8 @@
-tmp
-superset
+_
 .env
-node_modules
-dist
 apache-superset-quick-init-*
+dist
+node_modules
+superset
+temp.json
+tmp
