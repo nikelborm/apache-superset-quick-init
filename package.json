@@ -9,7 +9,7 @@
     "build": "rimraf dist && tsc && ncc build ./dist/index.js -o ./dist/minified --no-source-map-register --minify --no-cache && chmod +x ./dist/index.js ./dist/minified/index.js"
   },
   "dependencies": {
-    "fetch-github-folder": "^0.0.7",
+    "fetch-github-folder": "^0.1.0",
     "undici": "^7.2.0"
   },
   "devDependencies": {
