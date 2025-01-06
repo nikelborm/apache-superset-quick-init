@@ -1,6 +1,14 @@
 # apache-superset-quick-init
 
-[![npm version](https://badge.fury.io/js/apache-superset-quick-init.svg)](https://badge.fury.io/js/apache-superset-quick-init) [![Release Workflow](https://github.com/nikelborm/apache-superset-quick-init/actions/workflows/main.yml/badge.svg)](https://github.com/nikelborm/apache-superset-quick-init/actions/workflows/main.yml)
+[![Release Workflow](https://github.com/nikelborm/apache-superset-quick-init/actions/workflows/main.yml/badge.svg)](https://github.com/nikelborm/apache-superset-quick-init/actions/workflows/main.yml)
+[![npm version](https://badge.fury.io/js/apache-superset-quick-init.svg)](https://badge.fury.io/js/apache-superset-quick-init)
+[![JSR](https://jsr.io/badges/@nikelborm/apache-superset-quick-init)](https://jsr.io/@nikelborm/apache-superset-quick-init)
+[![JSR Score](https://jsr.io/badges/@nikelborm/apache-superset-quick-init/score)](https://jsr.io/@nikelborm/apache-superset-quick-init)
+[![JSR Scope](https://jsr.io/badges/@nikelborm)](https://jsr.io/@nikelborm)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/nikelborm/apache-superset-quick-init)
+![GitHub top language](https://img.shields.io/github/languages/top/nikelborm/apache-superset-quick-init)
+![NPM License](https://img.shields.io/npm/l/apache-superset-quick-init)
+<!-- ![npms.io](https://img.shields.io/npms-io/final-score/apache-superset-quick-init) -->
 
 I'm currently in the process of rewriting it to typescript since it uses js script ([nikelborm/fetch-github-folder](https://github.com/nikelborm/fetch-github-folder/)) anyway
 
