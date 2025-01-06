@@ -1,6 +1,6 @@
 # apache-superset-quick-init
 
-[![Release Workflow](https://github.com/nikelborm/apache-superset-quick-init/actions/workflows/main.yml/badge.svg)](https://github.com/nikelborm/apache-superset-quick-init/actions/workflows/main.yml)
+[![npm version](https://badge.fury.io/js/apache-superset-quick-init.svg)](https://badge.fury.io/js/apache-superset-quick-init) [![Release Workflow](https://github.com/nikelborm/apache-superset-quick-init/actions/workflows/main.yml/badge.svg)](https://github.com/nikelborm/apache-superset-quick-init/actions/workflows/main.yml)
 
 I'm currently in the process of rewriting it to typescript since it uses js script ([nikelborm/fetch-github-folder](https://github.com/nikelborm/fetch-github-folder/)) anyway
 
