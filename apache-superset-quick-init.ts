@@ -30,7 +30,7 @@ const PACKAGE_VERSION = '0.1.0';
 const PACKAGE_NAME = 'apache-superset-quick-init';
 
 const appCommand = make(
-  'apache-superset-quick-init',
+  PACKAGE_NAME,
   {
     destinationPath: destinationPathCLIOptionBackedByEnv,
     gitRef: gitRefCLIOptionBackedByEnv,
