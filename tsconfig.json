@@ -7,7 +7,7 @@
     "esModuleInterop": true,
     "declaration": true,
     "declarationMap": true,
-    // they'll be removed by ncc if needed
+    // they'll be removed by bundler if needed
     "removeComments": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -34,18 +34,21 @@
     "strictNullChecks": true,
     "noImplicitThis": true,
     "strictBindCallApply": true,
-    "noUncheckedIndexedAccess":true,
+    "noUncheckedIndexedAccess": true,
     "useUnknownInCatchVariables": true,
     "strictPropertyInitialization": true,
-    "alwaysStrict":true,
+    "alwaysStrict": true,
     "noImplicitUseStrict": false,
     "suppressExcessPropertyErrors": false,
     "suppressImplicitAnyIndexErrors": false,
     "noStrictGenericChecks": false,
-    "plugins": [
-      {
-        "name": "typescript-strict-plugin",
-      }
-    ]
-  }
+    "plugins": [{ "name": "typescript-strict-plugin" }]
+  },
+  "include": [
+    "./apache-superset-quick-init.ts",
+    "./apache-superset-quick-init.spec.ts",
+    "./scratchpad.ts",
+    "./reset.d.ts",
+    "./src/**/*"
+  ]
 }

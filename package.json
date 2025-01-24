@@ -1,6 +1,6 @@
 {
   "name": "apache-superset-quick-init",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "description": "Quickly download files needed to run Apache Superset deployment in docker and preconfigure them for production",
   "license": "MIT",
@@ -21,14 +21,8 @@
     "@effect/cli": "^0.51.2",
     "@effect/platform": "^0.72.2",
     "@effect/platform-node": "^0.68.2",
-    "@oslojs/crypto": "^1.0.1",
-    "dotenv-parser-serializer": "^1.0.2",
     "effect": "^3.12.7",
-    "fetch-github-folder": "^0.1.20",
-    "outdent": "^0.8.0",
-    "ts-toolbelt": "^9.6.0",
-    "tsafe": "^1.8.5",
-    "undici": "^7.2.0"
+    "fetch-github-folder": "^0.1.20"
   },
   "devDependencies": {
     "@effect/vitest": "^0.16.3",
@@ -43,7 +37,6 @@
     "rimraf": "^6.0.1",
     "rollup": "^4.31.0",
     "rollup-plugin-visualizer": "^5.14.0",
-    "tsx": "^4.19.2",
     "typescript": "^5.7.3",
     "vitest": "^2.1.8"
   },
