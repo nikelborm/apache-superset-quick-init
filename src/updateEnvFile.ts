@@ -19,16 +19,16 @@ export const updateEnvFile = fn(function* (basePath: string) {
   );
 
   const newEnvFile = envFile
-    .replaceAll(/^(DEV_MODE)=.*/g, '$1=false')
-    .replaceAll(/^(FLASK_DEBUG)=.*/g, '$1=false')
-    .replaceAll(/^(SUPERSET_ENV)=.*/g, '$1=production')
-    .replaceAll(/^(SUPERSET_LOAD_EXAMPLES)=.*/g, '$1=no')
-    .replaceAll(/^(ENABLE_PLAYWRIGHT)=.*/g, '$1=true')
-    .replaceAll(/^(PUPPETEER_SKIP_CHROMIUM_DOWNLOAD)=.*/g, '$1=false')
-    .replaceAll(/^(DATABASE_PASSWORD)=.*/g, `$1="${dbPass}"`)
-    .replaceAll(/^(POSTGRES_PASSWORD)=.*/g, `$1="${dbPass}"`)
-    .replaceAll(/^(EXAMPLES_PASSWORD)=.*/g, `$1="${examplesPass}"`)
-    .replaceAll(/^(SUPERSET_SECRET_KEY)=.*/g, `$1="${supersetSecretKey}"`)
+    .replaceAll(/^(DEV_MODE)=.*/gm, '$1=false')
+    .replaceAll(/^(FLASK_DEBUG)=.*/gm, '$1=false')
+    .replaceAll(/^(SUPERSET_ENV)=.*/gm, '$1=production')
+    .replaceAll(/^(SUPERSET_LOAD_EXAMPLES)=.*/gm, '$1=no')
+    .replaceAll(/^(ENABLE_PLAYWRIGHT)=.*/gm, '$1=true')
+    .replaceAll(/^(PUPPETEER_SKIP_CHROMIUM_DOWNLOAD)=.*/gm, '$1=false')
+    .replaceAll(/^(DATABASE_PASSWORD)=.*/gm, `$1="${dbPass}"`)
+    .replaceAll(/^(POSTGRES_PASSWORD)=.*/gm, `$1="${dbPass}"`)
+    .replaceAll(/^(EXAMPLES_PASSWORD)=.*/gm, `$1="${examplesPass}"`)
+    .replaceAll(/^(SUPERSET_SECRET_KEY)=.*/gm, `$1="${supersetSecretKey}"`)
     .replaceAll(
       /# Make sure you set this to a unique secure random value on production\n/g,
       '',

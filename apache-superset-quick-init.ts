@@ -40,8 +40,6 @@ const appCommand = make(
       const fs = yield* FileSystem;
       const path = yield* Path;
 
-      const newDockerDirPath = path.join(destinationPath, 'docker');
-
       yield* fs.makeDirectory(destinationPath, {
         recursive: true,
       });
@@ -51,16 +49,22 @@ const appCommand = make(
           downloadComposeFileAndAddNewNetworkToIt(destinationPath, gitRef),
           downloadEntityFromRepo({
             pathToEntityInRepo: 'docker',
-            localPathAtWhichEntityFromRepoWillBeAvailable: newDockerDirPath,
+            localPathAtWhichEntityFromRepoWillBeAvailable: path.join(
+              destinationPath,
+              'docker',
+            ),
             repo,
             gitRef,
           }).pipe(
             andThen(
-              all([
-                updateJwtSecretInSupersetWebsocketConfig(destinationPath),
-                updateEnvFile(destinationPath),
-                createPipRequirementsConfig(destinationPath),
-              ]),
+              all(
+                [
+                  updateJwtSecretInSupersetWebsocketConfig(destinationPath),
+                  updateEnvFile(destinationPath),
+                  createPipRequirementsConfig(destinationPath),
+                ],
+                { concurrency: 'unbounded' },
+              ),
             ),
           ),
         ],
