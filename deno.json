@@ -1,0 +1,27 @@
+{
+  "$schema": "https://deno.land/x/deno/cli/schemas/config-file.v1.json",
+  "name": "@nikelborm/apache-superset-quick-init",
+  "version": "0.1.20",
+  "exports": {
+    ".": "./index.ts",
+    "./index": "./index.ts",
+    "./errors": "./errors.ts",
+    "./cli": "./cli.ts"
+  },
+  "publish": {
+    "include": [
+      ".github/FUNDING.yml",
+      "template.env",
+      "src/**/*.ts",
+      "index.ts",
+      "errors.ts",
+      "cli.ts",
+      "README.md",
+      "LICENSE"
+    ],
+    "exclude": [
+      "**/*.spec.*",
+      "scratchpad.*"
+    ]
+  }
+}

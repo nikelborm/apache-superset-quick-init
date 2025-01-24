@@ -1,5 +1,11 @@
-import { randomFillSync } from 'node:crypto';
+import { promise } from 'effect/Effect';
+import { randomFill } from 'node:crypto';
+import { promisify } from 'node:util';
 
-export function generateRandomPassword(): string {
-  return randomFillSync(Buffer.alloc(48)).toString('base64');
-}
+const randomFillAsync = promisify(randomFill);
+
+export const generateRandomPassword = promise(async () => {
+  const buffer = Buffer.alloc(48);
+  await randomFillAsync(buffer);
+  return buffer.toString('base64');
+});

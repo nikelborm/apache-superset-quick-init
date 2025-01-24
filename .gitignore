@@ -1,8 +1,14 @@
 _
 .env
+/gh-page/bundled_deps
+/gh-page/coverage
 apache-superset-quick-init-*
+destination
 dist
+docker
 node_modules
+scratchpad.ts
+stats.html
 superset
 temp.json
 tmp

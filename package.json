@@ -5,20 +5,47 @@
   "description": "Quickly download files needed to run Apache Superset deployment in docker and preconfigure them for production",
   "license": "MIT",
   "scripts": {
-    "start": "tsc && node --env-file=.env ./dist/index.js",
-    "build": "rimraf dist && tsc && ncc build ./dist/index.js -o ./dist/minified --no-source-map-register --minify --no-cache && chmod +x ./dist/index.js ./dist/minified/index.js"
+    "start": "node --env-file=.env ./apache-superset-quick-init.ts",
+    "scratchpad": "node --env-file=.env ./scratchpad.ts",
+    "test": "vitest --watch",
+    "format": "prettier . --write",
+    "coverage": "vitest run --coverage",
+    "test-once": "vitest --run",
+    "test-jsr": "tsc && jsr publish --dry-run",
+    "build": "./scripts/build.sh",
+    "doc": "./scripts/generate_docs.sh",
+    "docs": "./scripts/generate_docs.sh",
+    "watch-docs": "find src/ cli.ts index.ts errors.ts | entr -can ./scripts/generate_docs.sh"
   },
   "dependencies": {
-    "fetch-github-folder": "^0.1.4",
-    "undici": "^7.2.0",
-    "dotenv-parser-serializer": "^1.0.2"
+    "@effect/cli": "^0.51.2",
+    "@effect/platform": "^0.72.2",
+    "@effect/platform-node": "^0.68.2",
+    "@oslojs/crypto": "^1.0.1",
+    "dotenv-parser-serializer": "^1.0.2",
+    "effect": "^3.12.7",
+    "fetch-github-folder": "^0.1.20",
+    "outdent": "^0.8.0",
+    "ts-toolbelt": "^9.6.0",
+    "tsafe": "^1.8.5",
+    "undici": "^7.2.0"
   },
   "devDependencies": {
+    "@effect/vitest": "^0.16.3",
+    "@rollup/plugin-commonjs": "^28.0.2",
+    "@rollup/plugin-node-resolve": "^16.0.0",
+    "@rollup/plugin-terser": "^0.4.4",
     "@total-typescript/ts-reset": "^0.5.1",
-    "@types/node": "^22.10.2",
-    "@vercel/ncc": "^0.38.1",
+    "@types/node": "^22.10.10",
+    "@vitest/coverage-v8": "^2.1.8",
+    "jsr": "^0.13.3",
+    "prettier": "^3.4.2",
     "rimraf": "^6.0.1",
-    "typescript": "^5.4.5"
+    "rollup": "^4.31.0",
+    "rollup-plugin-visualizer": "^5.14.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3",
+    "vitest": "^2.1.8"
   },
   "publishConfig": {
     "access": "public",
@@ -28,10 +55,11 @@
     "type": "git",
     "url": "git+ssh://git@github.com/nikelborm/apache-superset-quick-init.git"
   },
-  "main": "./dist/src/index.js",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "bin": {
-    "apache-superset-quick-init": "dist/index.js",
-    "asqi": "dist/index.js"
+    "apache-superset-quick-init": "dist/apache-superset-quick-init.js",
+    "asqi": "dist/apache-superset-quick-init.js"
   },
   "bugs": {
     "url": "https://github.com/nikelborm/apache-superset-quick-init/issues",
@@ -41,14 +69,25 @@
     "dist",
     "!dist/minified",
     "!**/*.tsbuildinfo",
+    "!**/*.spec.*",
+    "!**/scratchpad.*",
     ".github/FUNDING.yml",
     "template.env"
   ],
   "homepage": "https://github.com/nikelborm/apache-superset-quick-init#readme",
   "exports": {
-    ".": "./dist/src/index.js",
-    "./index": "./dist/src/index.js",
-    "./index.js": "./dist/src/index.js",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./index": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./index.js": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
     "./package.json": "./package.json"
   },
   "keywords": [
