@@ -37,39 +37,32 @@ const appCommand = make(
   },
   ({ gitRef, destinationPath }) =>
     gen(function* () {
-      const fs = yield* FileSystem;
-      const path = yield* Path;
+      const [fs, path] = yield* all([FileSystem, Path]);
 
       yield* fs.makeDirectory(destinationPath, {
         recursive: true,
       });
 
-      yield* all(
-        [
-          downloadComposeFileAndAddNewNetworkToIt(destinationPath, gitRef),
-          downloadEntityFromRepo({
-            pathToEntityInRepo: 'docker',
-            localPathAtWhichEntityFromRepoWillBeAvailable: path.join(
-              destinationPath,
-              'docker',
-            ),
-            repo,
-            gitRef,
-          }).pipe(
-            andThen(
-              all(
-                [
-                  updateJwtSecretInSupersetWebsocketConfig(destinationPath),
-                  updateEnvFile(destinationPath),
-                  createPipRequirementsConfig(destinationPath),
-                ],
-                { concurrency: 'unbounded' },
-              ),
-            ),
-          ),
-        ],
-        { concurrency: 'unbounded' },
-      );
+      const downloadDockerFolder = downloadEntityFromRepo({
+        pathToEntityInRepo: 'docker',
+        localPathAtWhichEntityFromRepoWillBeAvailable: path.join(
+          destinationPath,
+          'docker',
+        ),
+        repo,
+        gitRef,
+      });
+
+      const patchSomeStuffInDockerFolder = all([
+        updateJwtSecretInSupersetWebsocketConfig(destinationPath),
+        updateEnvFile(destinationPath),
+        createPipRequirementsConfig(destinationPath),
+      ]);
+
+      yield* all([
+        downloadComposeFileAndAddNewNetworkToIt(destinationPath, gitRef),
+        downloadDockerFolder.pipe(andThen(patchSomeStuffInDockerFolder)),
+      ]);
     }),
 );
 
