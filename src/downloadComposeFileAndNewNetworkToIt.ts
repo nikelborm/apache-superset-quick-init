@@ -1,21 +1,13 @@
 import { FileSystem } from '@effect/platform/FileSystem';
 import { Path } from '@effect/platform/Path';
-import { fn } from 'effect/Effect';
+import { all, fn } from 'effect/Effect';
 import { downloadEntityFromRepo } from 'fetch-github-folder';
 import { repo } from './repo.js';
 
-const additionalIntegrationNetwork = `
-networks:
-  default:
-    name: apache_superset_network
-`;
-
-export const downloadComposeFileAndAddNewNetworkToIt = fn(function* (
-  basePath: string,
-  gitRef: string,
-) {
-  const fs = yield* FileSystem;
-  const path = yield* Path;
+export const downloadComposeFileAndAddNewNetworkToIt = fn(
+  'downloadComposeFileAndAddNewNetworkToIt',
+)(function* (basePath: string, gitRef: string) {
+  const [fs, path] = yield* all([FileSystem, Path]);
 
   const newComposeFilePath = path.join(basePath, 'compose.yml');
 
@@ -32,3 +24,9 @@ export const downloadComposeFileAndAddNewNetworkToIt = fn(function* (
     { flag: 'a' }, // appends to the end
   );
 });
+
+const additionalIntegrationNetwork = `
+networks:
+  default:
+    name: apache_superset_network
+`;
