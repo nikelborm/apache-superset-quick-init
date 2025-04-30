@@ -2,6 +2,7 @@ _
 .env
 /gh-page/bundled_deps
 /gh-page/coverage
+package-lock.json
 apache-superset-quick-init-*
 destination
 dist
