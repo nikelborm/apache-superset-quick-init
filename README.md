@@ -26,7 +26,7 @@
 [![Sonar Vulnerabilities Count](https://sonarcloud.io/api/project_badges/measure?project=nikelborm_apache-superset-quick-init&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=nikelborm_apache-superset-quick-init)
 ![OSS Lifecycle status](https://img.shields.io/osslifecycle?file_url=https%3A%2F%2Fgithub.com%2Fnikelborm%2Fapache-superset-quick-init%2Fblob%2Fmain%2FOSSMETADATA)
 
-<!-- Commented because it's seems like codeclimate was acquired and no longer accepts new opensource repos -->
+<!-- Commented because it seems like codeclimate was acquired and no longer accepts new opensource repos -->
 <!-- [![Code Climate Technical Debt](https://img.shields.io/codeclimate/tech-debt/nikelborm/apache-superset-quick-init)](https://codeclimate.com/github/nikelborm/apache-superset-quick-init/issues) -->
 <!-- [![Code Climate Issues](https://img.shields.io/codeclimate/issues/nikelborm/apache-superset-quick-init)](https://codeclimate.com/github/nikelborm/apache-superset-quick-init/issues) -->
 
