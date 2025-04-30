@@ -1,6 +1,6 @@
 {
   "name": "apache-superset-quick-init",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "type": "module",
   "description": "Quickly download files needed to run Apache Superset deployment in docker and preconfigure them for production",
   "license": "MIT",
@@ -15,19 +15,22 @@
     "build": "./scripts/build.sh",
     "doc": "./scripts/generate_docs.sh",
     "docs": "./scripts/generate_docs.sh",
-    "watch-docs": "find src/ cli.ts index.ts errors.ts | entr -can ./scripts/generate_docs.sh"
+    "watch-docs": "find src/ | entr -can ./scripts/generate_docs.sh"
   },
   "dependencies": {
-    "@effect/cli": "^0.59.14",
-    "@effect/platform": "^0.80.14",
-    "@effect/platform-node": "^0.77.2",
-    "effect": "^3.14.14",
-    "fetch-github-folder": "^0.1.21",
-    "outdent": "^0.8.0"
+    "@effect/cli": "^0.59.15",
+    "@effect/platform": "^0.80.15",
+    "@effect/platform-node": "^0.77.3",
+    "effect": "^3.14.15",
+    "fetch-github-folder": "^0.1.23",
+    "outdent": "^0.8.0",
+    "tslib": "^2.8.1"
   },
   "devDependencies": {
-    "@effect/vitest": "^0.20.15",
+    "@effect/language-service": "^0.8.1",
+    "@effect/vitest": "^0.20.16",
     "@rollup/plugin-commonjs": "^28.0.3",
+    "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^16.0.1",
     "@rollup/plugin-terser": "^0.4.4",
     "@total-typescript/ts-reset": "^0.6.1",
@@ -49,8 +52,9 @@
     "type": "git",
     "url": "git+ssh://git@github.com/nikelborm/apache-superset-quick-init.git"
   },
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/src/index.js",
+  "module": "./dist/src/index.js",
+  "types": "./dist/dts/src/index.d.ts",
   "bin": {
     "apache-superset-quick-init": "dist/apache-superset-quick-init.js",
     "asqi": "dist/apache-superset-quick-init.js"
@@ -61,6 +65,7 @@
   },
   "files": [
     "dist",
+    "src",
     "!dist/minified",
     "!**/*.tsbuildinfo",
     "!**/*.spec.*",
@@ -71,16 +76,16 @@
   "homepage": "https://github.com/nikelborm/apache-superset-quick-init#readme",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
+      "types": "./dist/dts/src/index.d.ts",
+      "default": "./dist/src/index.js"
     },
     "./index": {
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
+      "types": "./dist/dts/src/index.d.ts",
+      "default": "./dist/src/index.js"
     },
     "./index.js": {
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
+      "types": "./dist/dts/src/index.d.ts",
+      "default": "./dist/src/index.js"
     },
     "./package.json": "./package.json"
   },

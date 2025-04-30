@@ -1,28 +1,62 @@
 # apache-superset-quick-init
 
-[![Release Workflow](https://github.com/nikelborm/apache-superset-quick-init/actions/workflows/main.yml/badge.svg)](https://github.com/nikelborm/apache-superset-quick-init/actions/workflows/main.yml)
-[![npm version](https://badge.fury.io/js/apache-superset-quick-init.svg)](https://badge.fury.io/js/apache-superset-quick-init)
-[![JSR](https://jsr.io/badges/@nikelborm/apache-superset-quick-init)](https://jsr.io/@nikelborm/apache-superset-quick-init)
-[![JSR Score](https://jsr.io/badges/@nikelborm/apache-superset-quick-init/score)](https://jsr.io/@nikelborm/apache-superset-quick-init)
-[![JSR Scope](https://jsr.io/badges/@nikelborm)](https://jsr.io/@nikelborm)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/nikelborm/apache-superset-quick-init)
-![GitHub top language](https://img.shields.io/github/languages/top/nikelborm/apache-superset-quick-init)
-![NPM License](https://img.shields.io/npm/l/apache-superset-quick-init)
-<!-- ![npms.io](https://img.shields.io/npms-io/final-score/apache-superset-quick-init) -->
+[![Open in VS Code](https://img.shields.io/static/v1?logo=visualstudiocode&label=&message=Open%20in%20VS%20Code&labelColor=2c2c32&color=007acc&logoColor=007acc)](https://github.dev/nikelborm/apache-superset-quick-init)
+[![NPM package version](https://badge.fury.io/js/apache-superset-quick-init.svg)](https://www.npmjs.com/package/apache-superset-quick-init)
+[![NPM downloads](https://img.shields.io/npm/dm/apache-superset-quick-init.svg?style=flat)](https://npmjs.org/package/apache-superset-quick-init)
+[![NPM Last Update](https://img.shields.io/npm/last-update/apache-superset-quick-init)](https://npmjs.org/package/apache-superset-quick-init)
+[![package.json Dependents count](https://badgen.net/npm/dependents/apache-superset-quick-init)](https://www.npmjs.com/package/apache-superset-quick-init?activeTab=dependents)
+[![JSR package version](https://jsr.io/badges/@nikelborm/apache-superset-quick-init)](https://jsr.io/@nikelborm/apache-superset-quick-init)
+[![JSR package Score](https://jsr.io/badges/@nikelborm/apache-superset-quick-init/score)](https://jsr.io/@nikelborm/apache-superset-quick-init)
+[![JSR package owner](https://jsr.io/badges/@nikelborm)](https://jsr.io/@nikelborm)
+[![GitHub commits per month](https://img.shields.io/github/commit-activity/m/nikelborm/apache-superset-quick-init)](https://github.com/nikelborm/apache-superset-quick-init/pulse)
+[![GitHub Total commits Count](https://img.shields.io/github/commit-activity/t/nikelborm/apache-superset-quick-init)](https://github.com/nikelborm/apache-superset-quick-init/graphs/commit-activity)
+[![NPM License](https://img.shields.io/npm/l/apache-superset-quick-init)](https://github.com/nikelborm/apache-superset-quick-init?tab=MIT-1-ov-file)
+[![CodeFactor Code quality Grade](https://img.shields.io/codefactor/grade/github/nikelborm/apache-superset-quick-init?label=codefactor)](https://www.codefactor.io/repository/github/nikelborm/apache-superset-quick-init)
+[![Code Climate Technical Debt](https://img.shields.io/codeclimate/tech-debt/nikelborm/apache-superset-quick-init)](https://codeclimate.com/github/nikelborm/apache-superset-quick-init/issues)
+[![Code Climate Issues](https://img.shields.io/codeclimate/issues/nikelborm/apache-superset-quick-init)](https://codeclimate.com/github/nikelborm/apache-superset-quick-init/issues)
+[![GitHub Tests Workflow status](https://github.com/nikelborm/apache-superset-quick-init/actions/workflows/test.yml/badge.svg)](https://github.com/nikelborm/apache-superset-quick-init/actions/workflows/test.yml)
+[![GitHub Release Workflow status](https://github.com/nikelborm/apache-superset-quick-init/actions/workflows/release.yml/badge.svg)](https://github.com/nikelborm/apache-superset-quick-init/actions/workflows/release.yml)
+[![Sonar Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=nikelborm_apache-superset-quick-init&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=nikelborm_apache-superset-quick-init)
+[![Sonar Bugs Count](https://sonarcloud.io/api/project_badges/measure?project=nikelborm_apache-superset-quick-init&metric=bugs)](https://sonarcloud.io/summary/new_code?id=nikelborm_apache-superset-quick-init)
+[![Sonar Code Smells Count](https://sonarcloud.io/api/project_badges/measure?project=nikelborm_apache-superset-quick-init&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=nikelborm_apache-superset-quick-init)
+[![Sonar Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=nikelborm_apache-superset-quick-init&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=nikelborm_apache-superset-quick-init)
+[![Sonar Lines of Code Count](https://sonarcloud.io/api/project_badges/measure?project=nikelborm_apache-superset-quick-init&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=nikelborm_apache-superset-quick-init)
+[![Sonar Reliability Grade](https://sonarcloud.io/api/project_badges/measure?project=nikelborm_apache-superset-quick-init&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=nikelborm_apache-superset-quick-init)
+[![Sonar Security Grade](https://sonarcloud.io/api/project_badges/measure?project=nikelborm_apache-superset-quick-init&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=nikelborm_apache-superset-quick-init)
+[![Sonar Technical Debt Count](https://sonarcloud.io/api/project_badges/measure?project=nikelborm_apache-superset-quick-init&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=nikelborm_apache-superset-quick-init)
+[![Sonar Maintainability Grade](https://sonarcloud.io/api/project_badges/measure?project=nikelborm_apache-superset-quick-init&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=nikelborm_apache-superset-quick-init)
+[![Sonar Vulnerabilities Count](https://sonarcloud.io/api/project_badges/measure?project=nikelborm_apache-superset-quick-init&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=nikelborm_apache-superset-quick-init)
+![OSS Lifecycle status](https://img.shields.io/osslifecycle?file_url=https%3A%2F%2Fgithub.com%2Fnikelborm%2Fapache-superset-quick-init%2Fblob%2Fmain%2FOSSMETADATA)
 
-I'm currently in the process of rewriting it to typescript since it uses js script ([nikelborm/fetch-github-folder](https://github.com/nikelborm/fetch-github-folder/)) anyway
+<!-- Commented because we currently don't have tests -->
+<!-- [![Coveralls Coverage Percentage](https://coveralls.io/repos/github/nikelborm/apache-superset-quick-init/badge.svg?branch=main&rand=9148876)](https://coveralls.io/github/nikelborm/apache-superset-quick-init?branch=main) -->
+
+<!-- Commented because there's some bug in effect library or in bundlephobia that prevents proper rendering of this badge -->
+<!-- [![npm minzipped bundle size](https://img.shields.io/bundlephobia/minzip/apache-superset-quick-init)](https://bundlephobia.com/package/apache-superset-quick-init) -->
+<!-- [![package.json Dependencies count](https://badgen.net/bundlephobia/dependency-count/apache-superset-quick-init)](https://www.npmjs.com/package/apache-superset-quick-init?activeTab=dependencies) -->
+
+<!-- commented because it seems that npms.io was acquired by somebody and is slowly dying -->
+<!-- [![npms.io](https://img.shields.io/npms-io/final-score/apache-superset-quick-init)](update_link_later) -->
+
+<!-- commented because I haven't started following it yet -->
+<!-- [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org) -->
+
+<sup>(Don't judge me for my obsession with badges)</sup>
+
+> [!CAUTION]
+>
+> This project currently is not stable, and I'm currently in the process of rewriting it to typescript since it depends on ts library ([nikelborm/fetch-github-folder](https://github.com/nikelborm/fetch-github-folder/)) anyway
+> Check out the `dev` branch to see the latest updates! 😉 (except that I currently don't care and just push to main)
 
 ## Dependencies
 
-1. curl (for loading scripts and compose files)
-2. openssl (for automatic password generation)
-3. node (You can install it easily using [NVM](https://github.com/nvm-sh/nvm))
-4. docker (for running superset)
+1. node (You can install it easily via [mise](https://github.com/jdx/mise))
+2. docker (for running superset)
 
 ## How to use
 
 ```bash
-curl https://raw.githubusercontent.com/nikelborm/apache-superset-quick-init/refs/heads/main/main.sh | bash
+npx apache-superset-quick-init
 
 cd ./superset
 # To generate passwords you can use `openssl rand -base64 48`.
@@ -45,6 +79,8 @@ docker compose up -d
 docker compose logs -f
 ```
 
-## TODO
+Also it's recommended to add this string to your .bashrc, if you want faster CLIs written in JS
 
-1. create a separate script for quick registering of a new database into a newly created Superset instance
+```bash
+export NODE_COMPILE_CACHE=~/.cache/nodejs-compile-cache
+```

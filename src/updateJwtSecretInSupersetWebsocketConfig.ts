@@ -9,7 +9,8 @@ import {
   parseJson,
   Record,
 } from 'effect/Schema';
-import { generateRandomPassword } from './generateRandomPassword.js';
+import { generateRandomPassword } from './generateRandomPassword.ts';
+import { allWithInheritedConcurrencyByDefault } from './allWithInheritedConcurrency.ts';
 
 export const updateJwtSecretInSupersetWebsocketConfig = fn(
   'updateJwtSecretInSupersetWebsocketConfig',
@@ -23,12 +24,13 @@ export const updateJwtSecretInSupersetWebsocketConfig = fn(
     'config.json',
   );
 
-  const { configFileParsed, jwtSecret } = yield* all({
-    configFileParsed: fs
-      .readFileString(supersetWebsocketConfigPath, 'utf8')
-      .pipe(flatMap(decodeSupersetWebsocketConfig)),
-    jwtSecret: generateRandomPassword,
-  });
+  const { configFileParsed, jwtSecret } =
+    yield* allWithInheritedConcurrencyByDefault({
+      configFileParsed: fs
+        .readFileString(supersetWebsocketConfigPath, 'utf8')
+        .pipe(flatMap(decodeSupersetWebsocketConfig)),
+      jwtSecret: generateRandomPassword,
+    });
 
   const config = yield* encodeSupersetWebsocketConfig({
     ...configFileParsed,

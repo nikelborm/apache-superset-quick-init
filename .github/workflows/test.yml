@@ -1,15 +1,15 @@
 name: Tests
 on:
   workflow_dispatch:
-  # push:
-  #   branches: [main, dev]
-  #   paths:
-  #     - 'src/**'
-  #     - 'testMocks/**'
-  #     - '*.spec.ts'
-  #     - 'vite.config.ts'
-  #     - 'rollup.config.js'
-  #     - 'gh-page/**'
+  push:
+    branches: [main, dev]
+    paths:
+      - 'src/**'
+      - 'testMocks/**'
+      - '*.spec.ts'
+      - 'vite.config.ts'
+      - 'rollup.config.js'
+      - 'gh-page/**'
 
 jobs:
   test-coverage:
@@ -32,17 +32,19 @@ jobs:
       - name: 'Compile, build, bundle, report deps graph'
         run: npm run build
 
-      - name: 'Test and report coverage'
-        run: npm run coverage
+      # There's no tests currently, so that's why it's commented
 
-      - name: 'Upload coverage report to coveralls.io'
-        uses: coverallsapp/github-action@v2
-        with:
-          file: ./gh-page/coverage/clover.xml
+      # - name: 'Test and report coverage'
+      #   run: npm run coverage
 
-      - name: 'Upload coverage and bundled deps reports to github actions'
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./gh-page
-          commit_message: 'Coverage: ${{ github.event.head_commit.message }}'
+      # - name: 'Upload coverage report to coveralls.io'
+      #   uses: coverallsapp/github-action@v2
+      #   with:
+      #     file: ./gh-page/coverage/clover.xml
+
+      # - name: 'Upload coverage and bundled deps reports to github pages'
+      #   uses: peaceiris/actions-gh-pages@v4
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     publish_dir: ./gh-page
+      #     commit_message: 'Coverage: ${{ github.event.head_commit.message }}'

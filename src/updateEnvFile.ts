@@ -1,19 +1,21 @@
 import { FileSystem } from '@effect/platform/FileSystem';
 import { Path } from '@effect/platform/Path';
 import { all, fn } from 'effect/Effect';
-import { generateRandomPassword } from './generateRandomPassword.js';
+import { generateRandomPassword } from './generateRandomPassword.ts';
+import { allWithInheritedConcurrencyByDefault } from './allWithInheritedConcurrency.ts';
 
 export const updateEnvFile = fn('updateEnvFile')(function* (basePath: string) {
   const [fs, path] = yield* all([FileSystem, Path]);
 
   const envFilePath = path.join(basePath, 'docker', '.env');
 
-  const { dbPass, envFile, examplesPass, supersetSecretKey } = yield* all({
-    envFile: fs.readFileString(envFilePath, 'utf8'),
-    dbPass: generateRandomPassword,
-    examplesPass: generateRandomPassword,
-    supersetSecretKey: generateRandomPassword,
-  });
+  const { dbPass, envFile, examplesPass, supersetSecretKey } =
+    yield* allWithInheritedConcurrencyByDefault({
+      envFile: fs.readFileString(envFilePath, 'utf8'),
+      dbPass: generateRandomPassword,
+      examplesPass: generateRandomPassword,
+      supersetSecretKey: generateRandomPassword,
+    });
 
   const newEnvFile = envFile
     .replaceAll(

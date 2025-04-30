@@ -2,7 +2,7 @@ import { FileSystem } from '@effect/platform/FileSystem';
 import { Path } from '@effect/platform/Path';
 import { all, fn } from 'effect/Effect';
 import { downloadEntityFromRepo } from 'fetch-github-folder';
-import { repo } from './repo.js';
+import { repo } from './repo.ts';
 
 export const downloadComposeFileAndAddNewNetworkToIt = fn(
   'downloadComposeFileAndAddNewNetworkToIt',

@@ -6,17 +6,13 @@ set -euo pipefail
 
 mkdir -p tmp
 
-cp -rf index.ts errors.ts cli.ts src package.json package-lock.json deno.json tmp/.
+cp -rf src package.json package-lock.json deno.json tmp/.
 
 cd tmp
 
-grep -vEi 'errors.js|cli.js' index.ts >tmp.ts && mv tmp.ts index.ts
-
-find src index.ts cli.ts errors.ts -type f -exec sed -i "s/.js';/.ts';/g" {} +
-
 ln -sf ../node_modules node_modules
 
-deno doc --html --name=apache-superset-quick-init --output=docs index.ts cli.ts errors.ts
+deno doc --html --name=apache-superset-quick-init --output=docs src/index.ts
 
 cd docs
 mv index/~/* index/.
