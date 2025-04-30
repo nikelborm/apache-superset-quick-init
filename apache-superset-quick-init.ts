@@ -15,11 +15,14 @@ import {
 } from 'fetch-github-folder';
 import pkg from './package.json' with { type: 'json' };
 import { createApacheSupersetFolder } from './src/createApacheSupersetFolder.ts';
+import { map as mapCLIOption } from '@effect/cli/Options';
 
 const appCommand = make(
   pkg.name,
   {
-    destinationPath: destinationPathCLIOptionBackedByEnv,
+    destinationPath: destinationPathCLIOptionBackedByEnv.pipe(
+      mapCLIOption(e => (e === './destination' ? './superset' : e)),
+    ),
     gitRef: gitRefCLIOptionBackedByEnv,
   },
   createApacheSupersetFolder,
