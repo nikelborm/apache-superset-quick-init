@@ -12,8 +12,6 @@
 [![GitHub Total commits Count](https://img.shields.io/github/commit-activity/t/nikelborm/apache-superset-quick-init)](https://github.com/nikelborm/apache-superset-quick-init/graphs/commit-activity)
 [![NPM License](https://img.shields.io/npm/l/apache-superset-quick-init)](https://github.com/nikelborm/apache-superset-quick-init?tab=MIT-1-ov-file)
 [![CodeFactor Code quality Grade](https://img.shields.io/codefactor/grade/github/nikelborm/apache-superset-quick-init?label=codefactor)](https://www.codefactor.io/repository/github/nikelborm/apache-superset-quick-init)
-[![Code Climate Technical Debt](https://img.shields.io/codeclimate/tech-debt/nikelborm/apache-superset-quick-init)](https://codeclimate.com/github/nikelborm/apache-superset-quick-init/issues)
-[![Code Climate Issues](https://img.shields.io/codeclimate/issues/nikelborm/apache-superset-quick-init)](https://codeclimate.com/github/nikelborm/apache-superset-quick-init/issues)
 [![GitHub Tests Workflow status](https://github.com/nikelborm/apache-superset-quick-init/actions/workflows/test.yml/badge.svg)](https://github.com/nikelborm/apache-superset-quick-init/actions/workflows/test.yml)
 [![GitHub Release Workflow status](https://github.com/nikelborm/apache-superset-quick-init/actions/workflows/release.yml/badge.svg)](https://github.com/nikelborm/apache-superset-quick-init/actions/workflows/release.yml)
 [![Sonar Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=nikelborm_apache-superset-quick-init&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=nikelborm_apache-superset-quick-init)
@@ -27,6 +25,10 @@
 [![Sonar Maintainability Grade](https://sonarcloud.io/api/project_badges/measure?project=nikelborm_apache-superset-quick-init&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=nikelborm_apache-superset-quick-init)
 [![Sonar Vulnerabilities Count](https://sonarcloud.io/api/project_badges/measure?project=nikelborm_apache-superset-quick-init&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=nikelborm_apache-superset-quick-init)
 ![OSS Lifecycle status](https://img.shields.io/osslifecycle?file_url=https%3A%2F%2Fgithub.com%2Fnikelborm%2Fapache-superset-quick-init%2Fblob%2Fmain%2FOSSMETADATA)
+
+<!-- Commented because it's seems like codeclimate was acquired and no longer accepts new opensource repos -->
+<!-- [![Code Climate Technical Debt](https://img.shields.io/codeclimate/tech-debt/nikelborm/apache-superset-quick-init)](https://codeclimate.com/github/nikelborm/apache-superset-quick-init/issues) -->
+<!-- [![Code Climate Issues](https://img.shields.io/codeclimate/issues/nikelborm/apache-superset-quick-init)](https://codeclimate.com/github/nikelborm/apache-superset-quick-init/issues) -->
 
 <!-- Commented because we currently don't have tests -->
 <!-- [![Coveralls Coverage Percentage](https://coveralls.io/repos/github/nikelborm/apache-superset-quick-init/badge.svg?branch=main&rand=9148876)](https://coveralls.io/github/nikelborm/apache-superset-quick-init?branch=main) -->

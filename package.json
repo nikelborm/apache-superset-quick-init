@@ -1,6 +1,6 @@
 {
   "name": "apache-superset-quick-init",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "type": "module",
   "description": "Quickly download files needed to run Apache Superset deployment in docker and preconfigure them for production",
   "license": "MIT",
