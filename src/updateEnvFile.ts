@@ -20,11 +20,11 @@ export const updateEnvFile = fn('updateEnvFile')(function* (basePath: string) {
   const newEnvFile = envFile
     .replaceAll(
       /^(DEV_MODE|FLASK_DEBUG|PUPPETEER_SKIP_CHROMIUM_DOWNLOAD)=.*/gm,
-      '$1=false',
+      `$1=false`,
     )
-    .replaceAll(/^(SUPERSET_ENV)=.*/gm, '$1=production')
-    .replaceAll(/^(SUPERSET_LOAD_EXAMPLES)=.*/gm, '$1=no')
-    .replaceAll(/^(ENABLE_PLAYWRIGHT)=.*/gm, '$1=true')
+    .replaceAll(/^(SUPERSET_ENV)=.*/gm, `$1=production`)
+    .replaceAll(/^(SUPERSET_LOAD_EXAMPLES)=.*/gm, `$1=no`)
+    .replaceAll(/^(ENABLE_PLAYWRIGHT)=.*/gm, `$1=true`)
     .replaceAll(/^(DATABASE_PASSWORD|POSTGRES_PASSWORD)=.*/gm, `$1="${dbPass}"`)
     .replaceAll(/^(EXAMPLES_PASSWORD)=.*/gm, `$1="${examplesPass}"`)
     .replaceAll(/^(SUPERSET_SECRET_KEY)=.*/gm, `$1="${supersetSecretKey}"`)

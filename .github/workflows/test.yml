@@ -5,9 +5,9 @@ on:
     branches: [main, dev]
     paths:
       - 'src/**'
-      - 'testMocks/**'
       - '*.spec.ts'
       - 'vite.config.ts'
+      - 'scripts/build.sh'
       - 'rollup.config.js'
       - 'gh-page/**'
 
@@ -32,19 +32,17 @@ jobs:
       - name: 'Compile, build, bundle, report deps graph'
         run: npm run build
 
-      # There's no tests currently, so that's why it's commented
+      - name: 'Test and report coverage'
+        run: npm run coverage
 
-      # - name: 'Test and report coverage'
-      #   run: npm run coverage
+      - name: 'Upload coverage report to coveralls.io'
+        uses: coverallsapp/github-action@v2
+        with:
+          file: ./gh-page/coverage/clover.xml
 
-      # - name: 'Upload coverage report to coveralls.io'
-      #   uses: coverallsapp/github-action@v2
-      #   with:
-      #     file: ./gh-page/coverage/clover.xml
-
-      # - name: 'Upload coverage and bundled deps reports to github pages'
-      #   uses: peaceiris/actions-gh-pages@v4
-      #   with:
-      #     github_token: ${{ secrets.GITHUB_TOKEN }}
-      #     publish_dir: ./gh-page
-      #     commit_message: 'Coverage: ${{ github.event.head_commit.message }}'
+      - name: 'Upload coverage and bundled deps reports to github pages'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./gh-page
+          commit_message: 'Coverage: ${{ github.event.head_commit.message }}'

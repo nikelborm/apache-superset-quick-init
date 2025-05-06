@@ -11,7 +11,7 @@ import { updateEnvFile } from './updateEnvFile.ts';
 import { updateJwtSecretInSupersetWebsocketConfig } from './updateJwtSecretInSupersetWebsocketConfig.ts';
 import { flow } from 'effect/Function';
 
-export const createApacheSupersetFolder: (a_0: {
+export const createApacheSupersetFolder: (config: {
   gitRef: string;
   destinationPath: string;
 }) => Effect<void, never, FileSystem | Path | Octokit> = flow(

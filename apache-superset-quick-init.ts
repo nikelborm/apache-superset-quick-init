@@ -2,6 +2,7 @@
 
 import { CliConfig, Span } from '@effect/cli';
 import { make, run } from '@effect/cli/Command';
+import { map as mapCLIOption } from '@effect/cli/Options';
 import { layer as NodeFileSystemLayer } from '@effect/platform-node-shared/NodeFileSystem';
 import { layer as NodePathLayer } from '@effect/platform-node-shared/NodePath';
 import { runMain } from '@effect/platform-node-shared/NodeRuntime';
@@ -15,7 +16,6 @@ import {
 } from 'fetch-github-folder';
 import pkg from './package.json' with { type: 'json' };
 import { createApacheSupersetFolder } from './src/createApacheSupersetFolder.ts';
-import { map as mapCLIOption } from '@effect/cli/Options';
 
 const appCommand = make(
   pkg.name,
