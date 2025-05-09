@@ -2,7 +2,7 @@ _
 .env
 /gh-page/bundled_deps
 /gh-page/coverage
-apache-superset-quick-init-*.tgz
+apache-superset-quick-init*.tgz
 destination
 dist
 docker

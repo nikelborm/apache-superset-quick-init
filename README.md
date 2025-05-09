@@ -43,15 +43,26 @@
 
 <sup>(Don't judge me for my obsession with badges)</sup>
 
+## What's this?
+
+It's a script I wrote to quickly setup Superset installation anywhere.
+
+The script automatically adds a new docker network with a known name
+(`apache_superset_network`) for easier integration with other Docker Compose
+projects, generates random credentials for services, enables Superset production
+mode and configures proper support for PostgreSQL.
+
 ## Dependencies
 
-1. node (You can install it easily via [mise](https://github.com/jdx/mise))
-2. docker (for running superset)
+1. Latest Node.js to run the script. You can install it easily via [mise](https://github.com/jdx/mise)
+2. Docker Compose to launch Superset
 
 ## How to use
 
 ```bash
 npx apache-superset-quick-init
+# or if you prefer
+pkg=apache-superset-quick-init && curl -sL https://github.com/nikelborm/$pkg/releases/latest/download/$pkg.js | node
 
 cd ./superset
 
@@ -62,7 +73,7 @@ cd ./superset
 # https://github.com/apache/superset/releases
 
 export TAG='latest'
-# If use choose `latest`, good idea to always pull
+# If you chose `latest`, it's a good idea to always pull
 # docker compose up -d --pull always
 docker compose up -d
 # Follow logs until completely deployed
