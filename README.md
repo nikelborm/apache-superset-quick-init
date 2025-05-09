@@ -61,7 +61,8 @@ mode and configures proper support for PostgreSQL.
 
 ```bash
 npx apache-superset-quick-init
-# or if you prefer
+# or if you prefer to skip loading useless stuff, you can load bundled and
+# minified version of the script, which would be much faster for single-shot execution
 pkg=apache-superset-quick-init && curl -sL https://github.com/nikelborm/$pkg/releases/latest/download/$pkg.js | node
 
 cd ./superset
