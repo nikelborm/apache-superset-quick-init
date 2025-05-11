@@ -67,10 +67,10 @@
     "plugins": [{ "name": "@effect/language-service" }]
   },
   "include": [
-    "./apache-superset-quick-init.ts",
-    "./apache-superset-quick-init.spec.ts",
-    "./scratchpad.ts",
-    "./reset.d.ts",
-    "./src/**/*"
+    "apache-superset-quick-init.ts",
+    "apache-superset-quick-init.spec.ts",
+    "scratchpad.ts",
+    "reset.d.ts",
+    "src/**/*"
   ]
 }
