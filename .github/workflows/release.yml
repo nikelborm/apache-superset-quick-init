@@ -93,7 +93,7 @@ jobs:
             ./dist/minified/${{ steps.package_info.outputs.name }}.js
             ./template.env
           body: |
-            # Yay! 🎉
+            # New release of ${{ steps.package_info.outputs.name }}! Yay! 🎉
 
             ## Files in this release
 
