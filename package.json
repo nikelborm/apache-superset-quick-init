@@ -15,7 +15,7 @@
     "build": "./scripts/build.sh",
     "doc": "./scripts/generate_docs.sh",
     "docs": "./scripts/generate_docs.sh",
-    "watch-docs": "find src/ | entr -can ./scripts/generate_docs.sh"
+    "watch-docs": "find src/ ./scripts/generate_docs.sh | entr -can ./scripts/generate_docs.sh"
   },
   "dependencies": {
     "@effect/cli": "^0.60.0",
