@@ -7,7 +7,7 @@ import { layer as NodeFileSystemLayer } from '@effect/platform-node-shared/NodeF
 import { layer as NodePathLayer } from '@effect/platform-node-shared/NodePath';
 import { runMain } from '@effect/platform-node-shared/NodeRuntime';
 import { layer as NodeTerminalLayer } from '@effect/platform-node-shared/NodeTerminal';
-import { provide } from 'effect/Effect';
+import { catchAll, fail, provide, sandbox, withSpan } from 'effect/Effect';
 import { pipe } from 'effect/Function';
 import {
   destinationPathCLIOptionBackedByEnv,
@@ -16,6 +16,7 @@ import {
 } from 'fetch-github-folder';
 import pkg from './package.json' with { type: 'json' };
 import { createApacheSupersetFolder } from './src/createApacheSupersetFolder.ts';
+import { prettyPrint } from 'effect-errors';
 
 const appCommand = make(
   pkg.name,
@@ -46,5 +47,19 @@ pipe(
       // auth: getEnvVarOrFail('GITHUB_ACCESS_TOKEN'),
     }),
   ),
-  runMain,
+  sandbox,
+  catchAll(e => {
+    console.error(prettyPrint(e));
+
+    return fail(e);
+  }),
+  withSpan('cli', {
+    attributes: {
+      name: pkg.name,
+      version: pkg.version,
+    },
+  }),
+  runMain({
+    disableErrorReporting: true,
+  }),
 );
