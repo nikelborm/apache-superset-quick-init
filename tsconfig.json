@@ -66,11 +66,6 @@
     "noStrictGenericChecks": false,
     "plugins": [{ "name": "@effect/language-service" }]
   },
-  "include": [
-    "apache-superset-quick-init.ts",
-    "apache-superset-quick-init.spec.ts",
-    "scratchpad.ts",
-    "reset.d.ts",
-    "src/**/*"
-  ]
+  "include": ["*.ts"],
+  "exclude": ["vite.config.ts"]
 }
