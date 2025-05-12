@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # If you use vscode's live server plugin, it's better to leave this disabled,
-# because recreation of the dir brakes hot-reload
+# because recreation of the dir breaks hot-reload
 # rm -rf tmp
 
 mkdir -p tmp
