@@ -4,7 +4,9 @@
   "version": "0.1.5",
   "license": "MIT",
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./src/index.ts",
+    "./index": "./src/index.ts",
+    "./index.ts": "./src/index.ts"
   },
   "publish": {
     "include": [
