@@ -20,7 +20,7 @@
   "dependencies": {
     "@effect/cli": "^0.63.4",
     "@effect/platform": "^0.84.4",
-    "@effect/platform-node": "^0.84.2",
+    "@effect/platform-node": "^0.85.11",
     "effect": "^3.15.1",
     "effect-errors": "^1.10.11",
     "fetch-github-folder": "^0.1.27",
