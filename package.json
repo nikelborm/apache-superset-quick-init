@@ -18,7 +18,7 @@
     "watch-docs": "find src/ ./scripts/generate_docs.sh | entr -can ./scripts/generate_docs.sh"
   },
   "dependencies": {
-    "@effect/cli": "^0.69.0",
+    "@effect/cli": "^0.70.0",
     "@effect/platform": "^0.90.6",
     "@effect/platform-node": "^0.96.0",
     "effect": "^3.15.1",
