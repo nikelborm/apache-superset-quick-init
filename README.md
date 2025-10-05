@@ -86,3 +86,10 @@ Also it's recommended to add this string to your .bashrc, if you want faster CLI
 ```bash
 export NODE_COMPILE_CACHE=~/.cache/nodejs-compile-cache
 ```
+
+## TODO
+
+1. Dynamically patch package.json during release, so that JSR version of
+   apache-superset-quick-init will depend on JSR version of fetch-github-folder
+2. Create a separate script for quick registering of a new database into a newly
+   created Superset instance
